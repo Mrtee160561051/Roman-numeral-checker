@@ -15,24 +15,26 @@ numInput.addEventListener("keydown", (e) => {
   }
 })
 
+const outputColor =(bColor,border)=>{
+  result.style.display="block";
+  result.style.background= bColor;
+  result.style.border= border;
+}
+
 const input = ()=>{
   let inputValue = parseInt(numInput.value);
-  result.style.display="block"
-  result.style.background="#3b3b4f"
-  result.style.border= "4px solid #fff"
+  outputColor("#3b3b4f","4px solid #fff")
   result.innerHTML = String(roman(inputValue));
 
   if (!numInput.value || isNaN(numInput.value)) {
     result.innerHTML = "Please enter a valid number"
-     result.style.background="#ffadad"
-     result.style.border= "4px solid #850000"
+     outputColor("#ffadad", "4px solid #850000")
   }
 }
 
 const roman = (num) => {
   if (num <= 0) {
-    result.style.background="#ffadad"
-     result.style.border= "4px solid #850000"
+    outputColor("#ffadad", "4px solid #850000")
      return "Please enter a number greater than or equal to 1.";
   } else if (num === 1) {
     return "I";
